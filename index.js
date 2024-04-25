@@ -18,6 +18,7 @@ const server = app.listen(PORT, async () => {
 const socket = io(server, {
   cors: {
     origin: 'https://codebox-play.vercel.app',
+    methods: ['GET', 'POST'],
   },
 });
 
