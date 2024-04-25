@@ -2,6 +2,7 @@ const express = require('express');
 const app = express(); // Init app and export it so other modules can access it
 const cors = require('cors');
 const io = require('socket.io');
+const http = require('http');
 
 // cors
 app.use(cors());
@@ -11,8 +12,9 @@ app.get('/', (req, res) => {
   res.send('codebox');
 });
 const PORT = 3000;
-const server = app.listen(PORT, async () => {
-  console.log(`Server has been started on port ${PORT}...`);
+const server = http.createServer(app);
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
 const socket = io(server, {
