@@ -32,3 +32,5 @@ socket.on('connection', (socket) => {
     socket.broadcast.emit('click', count);
   });
 });
+
+module.exports = app;
